@@ -31,7 +31,7 @@ MV <- transform(MV,
 MVPM25ByYearAndRegion <- ddply(MV, .(year, region), function(x) sum(x$Emissions))
 colnames(MVPM25ByYearAndRegion)[3] <- "Emissions"
 
-# Create a plot normalized to 1999 levels to better show change over time
+# Due to vastly different scales, Create a plot normalized to 1999 levels to better show change over time
 Balt1999Emissions <- subset(MVPM25ByYearAndRegion,
                             year == 1999 & region == "Baltimore City")$Emissions
 LAC1999Emissions <- subset(MVPM25ByYearAndRegion,
